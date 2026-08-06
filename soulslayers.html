@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клан Soul Slayers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #messageForm {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ДОБРО ПОЖАЛОВАТЬ НА САЙТ КЛАНА Soul Slayers</h1>
+    <button class="button" onclick="showMembers()">Участники</button>
+    <button class="button" onclick="showAdmin()">Админ</button>
+    <button class="button" onclick="toggleMessageForm()">Отправить заявку</button>
+
+    <div id="content"></div>
+    <div id="messageForm">
+        <h2>Оставьте ваше сообщение:</h2>
+        <textarea id="message" rows="4" cols="50"></textarea><br>
+        <button class="button" onclick="submitMessage()">Отправить</button>
+    </div>
+
+    <script>
+        function showMembers() {
+            document.getElementById('content').innerHTML = '<h2>Участники:</h2><p>нету</p>';
+        }
+
+        function showAdmin() {
+            document.getElementById('content').innerHTML = '<h2>Админ:</h2><p>DZEWIO</p>';
+        }
+
+        function toggleMessageForm() {
+            const form = document.getElementById('messageForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function submitMessage() {
+            const message = document.getElementById('message').value;
+            document.getElementById('content').innerHTML += `<h2>Заявка:</h2><p>${message}</p>`;
+            document.getElementById('message').value = '';
+            document.getElementById('messageForm').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
